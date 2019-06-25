@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常见的6种JavaScript设计模式 | 龙柏龙的博客</title>
+    <meta name="description" content="常见的6种JavaScript设计模式">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="keywords" content="构造函数模式 工厂模式 模块模式 混合模式 单例模式 发布订阅模式">
+    <link rel="preload" href="/assets/css/styles.fa6f5b75.css" as="style"><link rel="preload" href="/assets/js/app.fa6f5b75.js" as="script"><link rel="preload" href="/assets/js/22.c8ed32dc.js" as="script"><link rel="prefetch" href="/assets/css/1.styles.a7d53680.css"><link rel="prefetch" href="/assets/css/2.styles.a2bd3099.css"><link rel="prefetch" href="/assets/js/1.a7d53680.js"><link rel="prefetch" href="/assets/js/10.00f124b8.js"><link rel="prefetch" href="/assets/js/11.32fe29cb.js"><link rel="prefetch" href="/assets/js/12.2eec4804.js"><link rel="prefetch" href="/assets/js/13.e0ac4194.js"><link rel="prefetch" href="/assets/js/14.d0ad253b.js"><link rel="prefetch" href="/assets/js/15.72a93e38.js"><link rel="prefetch" href="/assets/js/16.8a724075.js"><link rel="prefetch" href="/assets/js/17.a858092c.js"><link rel="prefetch" href="/assets/js/18.241cb2db.js"><link rel="prefetch" href="/assets/js/19.c76ebb93.js"><link rel="prefetch" href="/assets/js/2.a2bd3099.js"><link rel="prefetch" href="/assets/js/20.a96ccc4e.js"><link rel="prefetch" href="/assets/js/21.e1a6ec14.js"><link rel="prefetch" href="/assets/js/23.841ece74.js"><link rel="prefetch" href="/assets/js/24.3ede046d.js"><link rel="prefetch" href="/assets/js/25.84ec3b06.js"><link rel="prefetch" href="/assets/js/26.7641f86e.js"><link rel="prefetch" href="/assets/js/27.cc8d8e0d.js"><link rel="prefetch" href="/assets/js/28.70be6440.js"><link rel="prefetch" href="/assets/js/29.32f39b5c.js"><link rel="prefetch" href="/assets/js/3.d53cfbdd.js"><link rel="prefetch" href="/assets/js/30.8f6e410b.js"><link rel="prefetch" href="/assets/js/31.13f50272.js"><link rel="prefetch" href="/assets/js/32.c0b40946.js"><link rel="prefetch" href="/assets/js/33.fbefc969.js"><link rel="prefetch" href="/assets/js/34.c064c203.js"><link rel="prefetch" href="/assets/js/35.8749230f.js"><link rel="prefetch" href="/assets/js/4.7aa108cf.js"><link rel="prefetch" href="/assets/js/5.8bc2c372.js"><link rel="prefetch" href="/assets/js/6.995fc5a9.js"><link rel="prefetch" href="/assets/js/7.de4eba34.js"><link rel="prefetch" href="/assets/js/8.82bae243.js"><link rel="prefetch" href="/assets/js/9.e8b25e4e.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.a7d53680.css"><link rel="stylesheet" href="/assets/css/2.styles.a2bd3099.css"><link rel="stylesheet" href="/assets/css/styles.fa6f5b75.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">龙柏龙的博客</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/skills/" class="nav-link router-link-active">语言</a></li><li class="dropdown-item"><!----> <a href="/application/" class="nav-link">应用</a></li><li class="dropdown-item"><!----> <a href="/service/" class="nav-link">服务</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">工具</a></li><li class="dropdown-item"><!----> <a href="/works/" class="nav-link">作品</a></li></ul></div></div><div class="nav-item"><a href="/life/" class="nav-link">生活</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">博文</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/skills/" class="nav-link router-link-active">语言</a></li><li class="dropdown-item"><!----> <a href="/application/" class="nav-link">应用</a></li><li class="dropdown-item"><!----> <a href="/service/" class="nav-link">服务</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">工具</a></li><li class="dropdown-item"><!----> <a href="/works/" class="nav-link">作品</a></li></ul></div></div><div class="nav-item"><a href="/life/" class="nav-link">生活</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/skills/" class="sidebar-link">web前端开发工作流程</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>SASS</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/skills/javascript/note.html" class="sidebar-link">NodeJS + Express 搭建在线便利贴</a></li><li><a href="/skills/javascript/javascript-design-pattern.html" class="active sidebar-link">常见的6种JavaScript设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/skills/javascript/javascript-design-pattern.html#构造函数模式" class="sidebar-link">构造函数模式</a></li><li class="sidebar-sub-header"><a href="/skills/javascript/javascript-design-pattern.html#工厂模式" class="sidebar-link">工厂模式</a></li><li class="sidebar-sub-header"><a href="/skills/javascript/javascript-design-pattern.html#模块模式" class="sidebar-link">模块模式</a></li><li class="sidebar-sub-header"><a href="/skills/javascript/javascript-design-pattern.html#混合模式" class="sidebar-link">混合模式</a></li><li class="sidebar-sub-header"><a href="/skills/javascript/javascript-design-pattern.html#单例模式" class="sidebar-link">单例模式</a></li><li class="sidebar-sub-header"><a href="/skills/javascript/javascript-design-pattern.html#发布订阅模式" class="sidebar-link">发布订阅模式</a></li></ul></li><li><a href="/skills/javascript/jquery-music.html" class="sidebar-link">使用HTML5 audio标签自制音乐播放器</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="常见的6种javascript设计模式"><a href="#常见的6种javascript设计模式" aria-hidden="true" class="header-anchor">#</a> 常见的6种JavaScript设计模式</h1> <h2 id="构造函数模式"><a href="#构造函数模式" aria-hidden="true" class="header-anchor">#</a> 构造函数模式</h2> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 构造一个动物的函数 
+ */
+function Animal(name, color){
+    this.name = name;
+    this.color = color;
+    this.getName = function(){
+        return this.name;
+    }
+}
+// 实例一个对象
+var cat = new Animal('猫', '白色');
+console.log( cat.getName() );
+</code></pre></div><h2 id="工厂模式"><a href="#工厂模式" aria-hidden="true" class="header-anchor">#</a> 工厂模式</h2> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 工厂模式
+ */
+function Animal(opts){
+    var obj = new Object();
+    obj.name = opts.name;
+    obj.color = opts.color;
+    obj.getInfo = function(){
+        return '名称：'+obj.name +'， 颜色：'+ obj.color;
+    }
+    return obj;
+}
+var cat = Animal({name: '波斯猫', color: '白色'});
+cat.getInfo();
+
+</code></pre></div><h2 id="模块模式"><a href="#模块模式" aria-hidden="true" class="header-anchor">#</a> 模块模式</h2> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 模块模式 = 封装大部分代码，只暴露必需接口
+ */
+var Car = (function(){
+    var name = '法拉利';
+    function sayName(){
+        console.log( name );
+    }
+    function getColor(name){
+        console.log( name );
+    }
+    return {
+        name: sayName,
+        color: getColor
+    }
+})();
+Car.name();
+Car.color('红色');
+</code></pre></div><h2 id="混合模式"><a href="#混合模式" aria-hidden="true" class="header-anchor">#</a> 混合模式</h2> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 混合模式 = 原型模式 + 构造函数模式
+ */
+function Animal(name, color){
+    this.name = name;
+    this.color = color;
+
+    console.log( this.name  +  this.color)
+}
+Animal.prototype.getInfo = function(){
+    console.log('名称：'+ this.name);
+}
+
+function largeCat(name, color){
+    Animal.call(null, name, color);
+
+    this.color = color;
+}
+
+largeCat.prototype = create(Animal.prototype);
+function create (parentObj){
+    function F(){}
+    F.prototype = parentObj;
+    return new F();
+};
+
+largeCat.prototype.getColor = function(){
+    return this.color;
+}
+var cat = new largeCat(&quot;Persian&quot;, &quot;白色&quot;);
+console.log( cat )
+
+</code></pre></div><h2 id="单例模式"><a href="#单例模式" aria-hidden="true" class="header-anchor">#</a> 单例模式</h2> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 在执行当前 Single 只获得唯一一个对象
+ */
+var Single = (function(){
+    var instance;
+    function init() {
+        //define private methods and properties
+        //do something
+        return {
+            //define public methods and properties
+        };
+    }
+
+	return {
+		// 获取实例
+		getInstance:function(){
+            if(!instance){
+                instance = init();
+            }
+            return instance;
+		}
+	}
+})();
+
+var obj1 = Single.getInstance();
+var obj2 = Single.getInstance();
+
+console.log(obj1 === obj2);
+</code></pre></div><h2 id="发布订阅模式"><a href="#发布订阅模式" aria-hidden="true" class="header-anchor">#</a> 发布订阅模式</h2> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 发布订阅模式
+ */
+var EventCenter = (function(){
+    var events = {};
+    /*
+    {
+      my_event: [{handler: function(data){xxx}}, {handler: function(data){yyy}}]
+    }
+    */
+    // 绑定事件 添加回调
+    function on(evt, handler){
+        events[evt] = events[evt] || [];
+        events[evt].push({
+            handler:handler
+        })
+    }
+    function fire(evt, arg){
+        if(!events[evt]){
+            return 
+        }
+        for(var i=0; i &lt; events[evt].length; i++){
+            events[evt][i].handler(arg);
+        }
+    }
+    function off(evt){
+        delete events[evt];
+    }
+    return {
+        on:on,
+        fire:fire,
+        off:off
+    }
+}());
+
+var number = 1;
+EventCenter.on('click', function(data){
+    console.log('click 事件' + data + number++ +'次');
+});
+EventCenter.off('click');   //  只绑定一次
+EventCenter.on('click', function(data){
+    console.log('click 事件' + data + number++ +'次');
+});
+
+EventCenter.fire('click', '绑定');
+
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/skills/javascript/note.html" class="prev">
+          NodeJS + Express 搭建在线便利贴
+        </a></span> <span class="next"><a href="/skills/javascript/jquery-music.html">
+          使用HTML5 audio标签自制音乐播放器
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/22.c8ed32dc.js" defer></script><script src="/assets/js/app.fa6f5b75.js" defer></script>
+  </body>
+</html>
